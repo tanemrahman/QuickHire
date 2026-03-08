@@ -1,0 +1,13 @@
+grafana:
+  adminPassword: change-me
+  service:
+    type: NodePort
+    nodePort: 30300
+
+prometheus:
+  service:
+    type: NodePort
+    nodePort: 30900
+
+alertmanager:
+  enabled: true

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quickhire-frontend
+  namespace: quickhire
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quickhire-frontend
+  template:
+    metadata:
+      labels:
+        app: quickhire-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/your-org/quickhire-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NEXT_PUBLIC_API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: quickhire-config
+                  key: NEXT_PUBLIC_API_URL

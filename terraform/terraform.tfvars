@@ -1,0 +1,8 @@
+aws_region           = "ap-south-1"
+key_name             = "QuickHireKey2"
+instance_ami         = "ami-07216ac99dc46a187"
+project_name         = "quickhire"
+ssh_cidr             = "0.0.0.0/0"
+master_instance_type = "t3.medium"
+worker_instance_type = "t3.small"
+kubernetes_version   = "1.29"
