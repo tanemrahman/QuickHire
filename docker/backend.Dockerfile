@@ -17,4 +17,4 @@ COPY --from=builder /app/package-lock.json ./package-lock.json
 RUN npm ci --omit=dev
 COPY --from=builder /app/dist ./dist
 EXPOSE 3000
-CMD ["node", "dist/main.js"]
+CMD ["sh", "-c", "node dist/main.js || node dist/src/main.js"]
